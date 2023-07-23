@@ -1,6 +1,7 @@
-const addForm = document.querySelector("#add-form");
-const list = document.querySelector("#todos");
+const addForm = document.querySelector(".add-form");
+const list = document.querySelector(".todos");
 
+// Add todos
 const generateTemplateForToDo = (toDoInput) => {
   const html = `
     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -19,5 +20,13 @@ addForm.addEventListener("submit", (event) => {
   if (toDoInput.length) {
     generateTemplateForToDo(toDoInput);
     addForm.reset();
+  }
+});
+
+// Delete todos:
+
+list.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete")) {
+    event.target.parentElement.remove();
   }
 });
